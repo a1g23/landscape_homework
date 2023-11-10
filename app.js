@@ -7,12 +7,14 @@ const lawnsCutTeeth = prompt("Working today? How many lawns did you cut with you
 if(lawnsCutTeeth > 0 && lawnsCutTeeth < 5) {
     alert("we made $" + (lawnsCutTeeth * 1) + " today")
 } else if (lawnsCutTeeth >= 5) {
-    var scissors = prompt("we made $" + (lawnsCutTeeth * 1) + " today. Do want to up your game with some scissors?", "yes") 
+    const scissors = prompt("we made $" + (lawnsCutTeeth * 1) + " today. Do want to up your game with some scissors?", "yes") 
+    if(scissors === "yes") {
+        alert("great investment, you'll make $5 per lawn now!")
+    }
 }
 
-if(scissors === "yes") {
-    alert("great investment, you'll make $5 per lawn now!")
-}
+
+
 
 
 
