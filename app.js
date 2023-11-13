@@ -11,15 +11,15 @@ const method = [
     {name: "Teeth", cost: 0, revenue: 1},
     {name: "Scissors", cost: 5, revenue: 5},
     {name: "Lawnmower", cost: 25, revenue: 50},
-    {name: "Fancy Lawnmower", cost: 250, revenue: 100}
+    {name: "Fancy Lawnmower", cost: 250, revenue: 100},
     {name: "Starving Students", cost: 500, revenue: 250}
 ]
 
 // function to cut lawn, we want an alert to ask how many lawns cut and then alert them with progress
 function cutLawn(){
     const tool = method[player.methodArr]
-    alert("You've made" + player.money + " dollars and you're using " + tool)
-    player.money + tool.revenue
+    player.money = (player.money + tool.revenue)
+    alert("You've made " + player.money + " dollars and you're using " + tool.name)
 }
 
 // function to upgrade your tool. you'll get the next tool in the array and the player will have to subtract from their funds
@@ -27,7 +27,8 @@ function upgrade() {
     const tool2 = method[player.methodArr + 1]
     if (player.money >= tool2.cost) {
     player.money -= tool2.cost
-    alert("Congrats! you just bought a " tool2.name + "! Keep Going! You'll start making more money now")
+    player.methodArr = player.methodArr + 1
+    alert("Congrats! you just bought a " + tool2.name + "! Keep Going! You'll start making more money now")
     } else {
         alert("Not enough money to upgrade! Keep working hard!")
     }
@@ -36,9 +37,9 @@ function upgrade() {
 // function to win the game
 // player has to have more than 1000 and the method array they are using needs to be greater than the length of the array (ie the last method)
 function gameWon() {
-    if (player.money >= 1000 && player.methodArr >= method.length) {
-        alert("You won the game!!!")
+    if (player.money >= 1000 && player.methodArr === method.length) {
         player.wonGame === true
+        alert("You won the game!!!")
     } else {
         alert("keep on going, you have " + player.money + " and using a " + method[player.methodArr])
     }
