@@ -38,12 +38,23 @@ function upgrade() {
 function gameWon() {
     if (player.money >= 1000 && player.methodArr >= method.length) {
         alert("You won the game!!!")
+        player.wonGame === true
     } else {
         alert("keep on going, you have " + player.money + " and using a " + method[player.methodArr])
     }
 }
 
-
+// games are loops. We need to continue to ask for feedback on if the player wants to cut the lawn or upgrade until they have won the game
+while(player.wonGame === false) {
+    const playerDecision = prompt("do you want to cut a lawn or upgrade your tool?", "cut a lawn")
+    if(playerDecision === "cut a lawn") {
+        cutLawn()
+    } else if(playerDecision === "upgrade" || playerDecision === "upgrade tool") {
+        upgrade()
+    } else {
+        alert("You'll need to type 'cut a lawn' or 'upgrade tool' to continue!")
+    }
+}
 
 
 
