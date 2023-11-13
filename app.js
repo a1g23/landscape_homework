@@ -1,7 +1,39 @@
 console.log("landscaper")
 
+// adding a player object to track money, the method they currently have and if they won the game
+
+const player = {
+    money: 0,
+    methodArr: 0,
+    wonGame: false
+}
+
+// adding a method object as an array to track method and how much you make from that method
+
+const method = [
+    {name: "Teeth", cost: 0, revenue: 1},
+    {name: "Scissors", cost: 5, revenue: 5},
+    {name: "Lawnmower", cost: 25, revenue: 50},
+    {name: "Fancy Lawnmower", cost: 250, revenue: 100}
+    {name: "Starving Students", cost: 500, revenue: 250}
+]
+
+
+const gameWon = () => {
+    if (player.money >= 1000 && player.methodArr >= method.length) {
+        alert("You won the game!!!")
+    } else {
+        alert("keep on going, you have " + player.money + " and using a " + player.methodArr[method.name])
+    }
+}
+
+const cutLawn = () => {
+    
+}
+
 // first lets give the option with a prompt, for the player to log how many lawns they cut today
 const lawnsCutTeeth = prompt("Working today? How many lawns did you cut with your teeth?", 0)
+
 
 // if the player cut more than one lawn with their teeth, they made $1 multiplied by how many lawns they cut. If they
 // make more than $5 dollars, they can buy scissors and make $5 per lawn
@@ -14,6 +46,7 @@ if(lawnsCutTeeth > 0 && lawnsCutTeeth < 5) {
     }
 }
 
+// if the player bought scissors, we can ask them what the
 const teethOrScissors = prompt("Back at it! Did you use teeth or scissors today?","scissors")
 
 if(teethOrScissors === "scissors") {
@@ -26,6 +59,8 @@ if(teethOrScissors === "scissors") {
             alert("great investment, you'll make $50 per lawn now!")
         }
     }
+} else {
+    alert("come on! you won't make it in this business unless you invest in better equipment!")
 }
 
 
@@ -34,10 +69,4 @@ if(teethOrScissors === "scissors") {
 
 
 
-
-
-
-
-
-// the player starts at 0 lawns
 
