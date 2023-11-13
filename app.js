@@ -15,9 +15,22 @@ const method = [
     {name: "Starving Students", cost: 500, revenue: 250}
 ]
 
+// function to cut lawn, we want an alert to ask how many lawns cut and then alert them with progress
+function cutLawn(){
+    alert("You made" + player.money + " dollars using " + method[player.methodArr])
+    player.money + method[player.methodArr].revenue
+}
+
+// function to upgrade your tool. you'll get the next tool in the array and the player will have to subtract from their funds
+function upgrade() {
+    method[player.methodArr + 1]
+    player.money -= method.cost
+    alert("Congrats! you just bought a " method[player.methodArr + 1] + "! Keep Going! You'll start making more money now")
+}
+
 // function to win the game
 // player has to have more than 1000 and the method array they are using needs to be greater than the length of the array (ie the last method)
-const gameWon = () => {
+function gameWon() {
     if (player.money >= 1000 && player.methodArr >= method.length) {
         alert("You won the game!!!")
     } else {
@@ -25,14 +38,8 @@ const gameWon = () => {
     }
 }
 
-gameWon()
 
-// function to cut lawn, we want a prompt to ask how many lawns cut and then alert them with progress
-function cutLawn(){
-    prompt("Working today? How many lawns did you cut with", 0)
-}
 
-cutLawn();
 
 
 // first lets give the option with a prompt, for the player to log how many lawns they cut today
