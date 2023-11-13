@@ -17,15 +17,20 @@ const method = [
 
 // function to cut lawn, we want an alert to ask how many lawns cut and then alert them with progress
 function cutLawn(){
-    alert("You made" + player.money + " dollars using " + method[player.methodArr])
-    player.money + method[player.methodArr].revenue
+    const tool = method[player.methodArr]
+    alert("You've made" + player.money + " dollars and you're using " + tool)
+    player.money + tool.revenue
 }
 
 // function to upgrade your tool. you'll get the next tool in the array and the player will have to subtract from their funds
 function upgrade() {
-    method[player.methodArr + 1]
-    player.money -= method.cost
-    alert("Congrats! you just bought a " method[player.methodArr + 1] + "! Keep Going! You'll start making more money now")
+    const tool2 = method[player.methodArr + 1]
+    if (player.money >= tool2.cost) {
+    player.money -= tool2.cost
+    alert("Congrats! you just bought a " tool2.name + "! Keep Going! You'll start making more money now")
+    } else {
+        alert("Not enough money to upgrade! Keep working hard!")
+    }
 }
 
 // function to win the game
@@ -34,7 +39,7 @@ function gameWon() {
     if (player.money >= 1000 && player.methodArr >= method.length) {
         alert("You won the game!!!")
     } else {
-        alert("keep on going, you have " + player.money + " and using a " + player.methodArr[method.name])
+        alert("keep on going, you have " + player.money + " and using a " + method[player.methodArr])
     }
 }
 
